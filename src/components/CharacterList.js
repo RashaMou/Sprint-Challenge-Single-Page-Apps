@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
 import CharacterCard from './CharacterCard';
 
 
@@ -27,17 +28,15 @@ export default function CharacterList(props) {
 
   return (
     <div>
-      <form className="search">
-        <input
-          type="text"
-          onChange={handleChange}
-          value={searchTerm}
-          name="name"
-          tabIndex="0"
-          placeholder="Search Characters"
-          autoComplete="off"
-        />
-      </form>
+      <TextField
+        id="standard-search"
+        label="Search Characters"
+        type="search"
+        margin="normal"
+        onChange={handleChange}
+        value={searchTerm}
+        className='search'
+      />
       <section className="character-list">
         {characters.map(character => {
           return (
