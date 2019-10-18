@@ -1,17 +1,18 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
+import { Card } from 'semantic-ui-react';
+
 
 export default function CharacterCard(props) {
-  console.log(props.peeps)
   return (
     <div className='cards-wrapper'>
-      <div className='character-card'>
+      <Card className='ui-card'>
             <h2>{props.peeps.name}</h2>
-            <p>{props.peeps.gender}</p>
-            <img src={props.peeps.image} alt={props.peeps.name}/>
-            <p>Status: {props.peeps.status}</p>
-            <p>Species: {props.peeps.species}</p>
-            {/* <p>Origin: <NavLink to='/locations/:id'>{props.peeps.origin.name}</NavLink></p> make location list page and card, and then link the cards to this id */}
-          </div>
+            <img className='peep-image' src={props.peeps.image} alt={props.peeps.name}/>
+            <p><span className='card-info'>Status:  </span>{props.peeps.status}</p>
+            <p><span className='card-info'>Species: </span>{props.peeps.species}</p>
+            <p>Origin: <NavLink to='/locations/:id'>{props.peeps.origin.name}</NavLink></p> 
+          </Card>
     </div>
   );
 }

@@ -17,11 +17,10 @@ export default function LocationsList() {
 
   return (
     <div>
-      <h2>The Rick and Morty Universe</h2>
       <section className="location-list">
         {locations.map(location => {
           return (
-            <LocationCard locations={locations}/>
+            <LocationCard location={location}/>
           )
         })}
       </section>
