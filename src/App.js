@@ -6,6 +6,7 @@ import WelcomePage from './components/WelcomePage'
 import CharacterList from './components/CharacterList';
 import LocationsList from './components/LocationsList';
 import SearchForm from './components/SearchForm';
+import SearchResults from './components/SearchResults';
 
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
         <CharacterList characters={characters}/>
       } />
       <Route path='/locations' component={LocationsList} />
+      
     </main>
   );
 }

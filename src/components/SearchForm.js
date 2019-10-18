@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { withRouter, NavLink, Route } from 'react-router-dom';
+import SearchResults from './SearchResults'
 
-export default function SearchForm(props) { 
+function SearchForm(props) { 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -16,27 +18,33 @@ export default function SearchForm(props) {
     setSearchTerm(event.target.value);
     console.log('search term', searchTerm)
   };
+
+  const onSubmit = event => {
+    event.preventDefault()
+    props.history.push('/results')
+  }
  
   return (
     <section className="search-form">
-      <form>
-        <label htmlFor="name">Search:</label>
+      <form onSubmit={onSubmit}>
+        <label htmlFor="name"></label>
         <input
           id="name"
           type="text"
           name="textfield"
-          placeholder="Search"
+          placeholder="Search Characters"
           value={searchTerm}
           onChange={handleChange}
         />
+        <button type='submit'>Search</button>
       </form>
       <div className="character-list">
-        <ul>
-          {searchResults.map(result => (
-            <li key={result}>{result.name}</li>
-          ))}
-        </ul>
+      <Route path='/results' render={() =>
+        <SearchResults characters={searchResults}/>
+      }/>
       </div>
     </section>
   );
 }
+
+export default withRouter(SearchForm)
