@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import LocationCard from './LocationCard';
 import axios from 'axios';
 
@@ -18,6 +17,7 @@ export default function LocationsList() {
 
   return (
     <div>
+      <h2>The Rick and Morty Universe</h2>
       <section className="location-list">
         {locations.map(location => {
           return (

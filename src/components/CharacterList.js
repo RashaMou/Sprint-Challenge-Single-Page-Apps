@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-
 import axios from 'axios';
 import CharacterCard from './CharacterCard';
+
 
 export default function CharacterList(props) {
   const[characters, addCharacters] = useState([])
@@ -28,7 +27,6 @@ export default function CharacterList(props) {
 
   return (
     <div>
-      <NavLink to='/'><button className='home-button'>Home</button></NavLink>
       <form className="search">
         <input
           type="text"

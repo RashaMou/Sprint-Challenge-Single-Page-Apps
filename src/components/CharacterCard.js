@@ -4,7 +4,6 @@ export default function CharacterCard(props) {
   console.log(props.peeps)
   return (
     <div className='cards-wrapper'>
-      
       <div className='character-card'>
             <h2>{props.peeps.name}</h2>
             <p>{props.peeps.gender}</p>
