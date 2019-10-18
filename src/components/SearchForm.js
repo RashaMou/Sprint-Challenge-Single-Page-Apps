@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { withRouter, NavLink, Route } from 'react-router-dom';
-import SearchResults from './SearchResults'
 
 function SearchForm(props) { 
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     const results = props.characters.filter(character =>
@@ -18,15 +16,10 @@ function SearchForm(props) {
     setSearchTerm(event.target.value);
     console.log('search term', searchTerm)
   };
-
-  const onSubmit = event => {
-    event.preventDefault()
-    props.history.push('/results')
-  }
  
   return (
     <section className="search-form">
-      <form onSubmit={onSubmit}>
+      <form>
         <label htmlFor="name"></label>
         <input
           id="name"
@@ -36,13 +29,7 @@ function SearchForm(props) {
           value={searchTerm}
           onChange={handleChange}
         />
-        <button type='submit'>Search</button>
       </form>
-      <div className="character-list">
-      <Route path='/results' render={() =>
-        <SearchResults characters={searchResults}/>
-      }/>
-      </div>
     </section>
   );
 }
