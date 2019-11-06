@@ -28,6 +28,10 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 - [ ]  Explain benefit(s) using `client-side routing`?
 
 > Answer:
+In server-side routing, every link in the page went to the server, sending some parameters, and pulling data back. Every time we needed to do something dynamic, it made a round trip to the server to render it back to the screen. This was slow and resource intensive.
+
+Client-side routing runs our content update right in the browser, so there is no request to the server when a user clicks a link on the website. Instead, clicking a link results in rendering only the components that need to be changed on the page. This makes websites snappier overall, although the initial load time may be longer, since everything is downloaded at the beginning.
+
 
 ## Project Set Up
 

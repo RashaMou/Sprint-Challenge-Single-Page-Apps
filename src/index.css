@@ -14,6 +14,13 @@ main {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
+.main-img {
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  padding: 20px 0 20px 0;
+}
+
 .grid-view {
   display: flex;
   flex-wrap: wrap;
@@ -27,13 +34,48 @@ main {
 .grid-view div.card.ui {
   margin: 1.25rem;
 }
-/*
-.main-img {
-  display: block;
-  border-radius: 100%;
-  margin: 0 auto;
-} */
+
+.character-list {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.location-list {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cards-wrapper {
+  margin: 30px;
+}
 
 header h1 {
   text-align: center;
 }
+
+div.cards-wrapper:nth-child(1) > div:nth-child(1) {
+  padding: 20px;
+ }
+
+ div.ui.card.ui-card {
+  padding: 20px;
+  width: 350px;
+ }
+
+ .peep-image {
+   margin-bottom: 15px;
+ }
+ 
+ p {
+   font-size: 1.3rem;
+ }
+
+ .card-info {
+   font-weight: bold;
+ }
+ 
+

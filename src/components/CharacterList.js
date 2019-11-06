@@ -1,16 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
+import CharacterCard from './CharacterCard';
 
-export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
+
+export default function CharacterList(props) {
+  const[characters, addCharacters] = useState([])
+  const [searchTerm, setSearchTerm] = useState("");
+
 
   useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+    axios.get('https://rickandmortyapi.com/api/character/')
+      .then(res => {
+        const peeps= res.data.results.filter(peep =>
+          peep.name.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+        addCharacters(peeps)  
+      })
+      .catch(err => {
+        console.log('Error', err)
+      })
+  }, [searchTerm]);
+
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+  };
 
   return (
-    <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
-    </section>
+    <div>
+      <TextField
+        id="standard-search"
+        label="Search Characters"
+        type="search"
+        margin="normal"
+        onChange={handleChange}
+        value={searchTerm}
+        className='search'
+      />
+      <section className="character-list">
+        {characters.map(character => {
+          return (
+            <CharacterCard peeps={character}/>
+          )
+        })}
+      </section>
+    </div>
   );
 }
